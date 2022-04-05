@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 //Wage Calculator
 
-// Regular Employee:
+// Regular/Full-time Employee:
 // 1-8 hours(regular work time): 100 pesos per hour
 // Probationary Employee:
 // 1-8 hours: 90 pesos per hour
@@ -34,6 +34,7 @@ public class Display extends AppCompatActivity {
 
 
         Intent i = getIntent();
+
         String EmployeeType = i.getStringExtra("type");
         String EmployeeName = i.getStringExtra("empName");
         Double EmployeeHours = Double.parseDouble(i.getStringExtra("hours"));
@@ -42,9 +43,19 @@ public class Display extends AppCompatActivity {
         txtName.setText("Employee Name: " +EmployeeName);
         txtType.setText("Employee Type: " + String.valueOf(EmployeeType));
         txtHours.setText("Hours Rendered: "+ String.valueOf(EmployeeHours));
+        Double totalWage = 0.0;
 
-        if(EmployeeHours<=8){
-
+        if(EmployeeType.equals("Full-time")){
+            totalWage = EmployeeHours * 100;
+            txtWage.setText("Total Wage: ₱" +String.valueOf(totalWage));
+        }
+        else if(EmployeeType.equals("Part-time")){
+            totalWage = EmployeeHours * 75;
+            txtWage.setText("Total Wage: ₱" +String.valueOf(totalWage));
+        }
+        else{
+            totalWage = EmployeeHours * 90;
+            txtWage.setText("Total Wage: ₱" +String.valueOf(totalWage));
         }
 
 
