@@ -28,18 +28,20 @@ public class Display extends AppCompatActivity {
 
         txtName = findViewById(R.id.txtEmployeeName);
         txtType = findViewById(R.id.txtEmployeeType);
-        txtHours = findViewById(R.id.employeeHours);
+        txtHours = findViewById(R.id.txtHours);
         txtWage = findViewById(R.id.txtTotalWage);
 
 
 
         Intent i = getIntent();
+        String EmployeeType = i.getStringExtra("type");
         String EmployeeName = i.getStringExtra("empName");
-        Double EmployeeHours = i.getDoubleExtra("hours",0);
+        Double EmployeeHours = Double.parseDouble(i.getStringExtra("hours"));
 
 
-        txtName.setText(EmployeeName);
-        txtType.setText(String.valueOf(EmployeeHours));
+        txtName.setText("Employee Name: " +EmployeeName);
+        txtType.setText("Employee Type: " + String.valueOf(EmployeeType));
+        txtHours.setText("Hours Rendered: "+ String.valueOf(EmployeeHours));
 
         if(EmployeeHours<=8){
 

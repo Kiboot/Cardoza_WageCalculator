@@ -29,7 +29,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         employeeType = findViewById(R.id.employeeType);
         //Button
         calculate = findViewById(R.id.btnCalculate);
-        //RadioButton
 
         //button On click listener
         calculate.setOnClickListener(this);
@@ -48,7 +47,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     String type = btnSelected.getText().toString();
 
                     String name = employeeName.getText().toString();
-                    Double totalHours = Double.parseDouble(employeeHours.getText().toString());
+                    String totalHours = (employeeHours.getText().toString());
 
                     Intent intent = new Intent(this,Display.class);
 
