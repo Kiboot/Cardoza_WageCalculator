@@ -75,17 +75,25 @@ public class Display extends AppCompatActivity {
     public void calcWage(String employeeType, Double employeeHours, TextView txtWage){
         Double totalWage = 0.0;
 
-        if(employeeType.equals("Full-time")){
-            totalWage = employeeHours * 100;
-            txtWage.setText("Total Wage: ₱" +String.valueOf(totalWage));
-        }
-        else if(employeeType.equals("Part-time")){
-            totalWage = employeeHours * 75;
-            txtWage.setText("Total Wage: ₱" +String.valueOf(totalWage));
+
+
+
+        if(employeeHours > 8.0){
+            //overtime hours code
         }
         else{
-            totalWage = employeeHours * 90;
-            txtWage.setText("Total Wage: ₱" +String.valueOf(totalWage));
+            if(employeeType.equals("Full-time")){
+                totalWage = employeeHours * 100;
+                txtWage.setText("Total Wage: ₱" +String.valueOf(totalWage));
+            }
+            else if(employeeType.equals("Part-time")){
+                totalWage = employeeHours * 75;
+                txtWage.setText("Total Wage: ₱" +String.valueOf(totalWage));
+            }
+            else{
+                totalWage = employeeHours * 90;
+                txtWage.setText("Total Wage: ₱" +String.valueOf(totalWage));
+            }
         }
     }
 
